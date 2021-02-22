@@ -7,6 +7,16 @@ import { FeatureCollection, GeoJsonMap, GeoJsonMapGeometry, GeoJsonMapProperties
         
         kommunerPolygon: any[] 
 
+        constructor(kommunKod:string)
+        {
+            this.kommunKod = kommunKod;
+        }
+
+        changeKommunKod(kommunKod:string)
+        {
+            this.kommunKod = kommunKod;
+        }
+
         kommunCenter()
         {
             let kommunKod = this.kommuner.findIndex((obj)=> obj.kod == this.kommunKod)
