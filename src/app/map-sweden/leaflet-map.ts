@@ -10,8 +10,8 @@ const stockholm = {
 
 export class LeafletMap {
     map:Leaflet.Map;
-    kommunKod:string = "0162"
-    kommuner:kommmunergeo = new kommmunergeo(this.kommunKod);
+    kommunKod:string// = "0162"
+    kommuner:kommmunergeo;// = new kommmunergeo(this.kommunKod);
     
 
     geojsonFeature = {
@@ -55,8 +55,11 @@ export class LeafletMap {
 
     
 
-    constructor( id:string)
+    constructor( id:string, kommunKod:string)
     {
+        kommunKod? this.kommunKod = kommunKod: this.kommunKod = "0162"; 
+        this.kommuner = new kommmunergeo(this.kommunKod);
+
         this.map = Leaflet.map(id);
         Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
             .addTo(this.map);
